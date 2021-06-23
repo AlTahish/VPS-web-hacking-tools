@@ -69,10 +69,6 @@ SUBDOMAINS_ENUMERATION () {
 	echo -e ${BLUE}"[SUBDOMAINS ENUMERATION]" ${RED}"Crobat installation in progress ...";
 	go get github.com/cgboal/sonarsearch/crobat > /dev/null 2>&1 && ln -s ~/go/bin/crobat /usr/local/bin/;
 	echo -e ${BLUE}"[SUBDOMAINS ENUMERATION]" ${GREEN}"Crobat installation is done !"; echo "";
-	#Sudomy
-	echo -e ${BLUE}"[SSRF TOOLS]" ${RED}"Sudomy installation in progress ...";
-	cd $TOOLS_DIRECTORY && apt-get update > /dev/null 2>&1 && apt-get install jq nmap phantomjs npm chromium parallel -y > /dev/null 2>&1 && npm i -g wappalyzer wscat > /dev/null 2>&1 && git clone --recursive https://github.com/screetsec/Sudomy.git > /dev/null 2>&1 && cd Sudomy && pip3 install -r requirements.txt > /dev/null 2>&1;
-	echo -e ${BLUE}"[SSRF TOOLS]" ${GREEN}"Sudomy installation is done !"; echo "";
 }
 
 DNS_RESOLVER () {

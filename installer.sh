@@ -45,6 +45,10 @@ SUBDOMAINS_ENUMERATION () {
 	echo -e ${BLUE}"[SUBDOMAINS ENUMERATION]" ${RED}"Subfinder installation in progress ...";
 	GO111MODULE=on go get -v github.com/projectdiscovery/subfinder/v2/cmd/subfinder > /dev/null 2>&1 && ln -s ~/go/bin/subfinder /usr/local/bin/;
 	echo -e ${BLUE}"[SUBDOMAINS ENUMERATION]" ${GREEN}"Subfinder installation is done !"; echo "";
+	#Chaos
+	echo -e ${BLUE}"[SUBDOMAINS ENUMERATION]" ${RED}"Chaos installation in progress ...";
+	GO111MODULE=on go get -v github.com/projectdiscovery/chaos-client/cmd/chaos > /dev/null 2>&1 && ln -s ~/go/bin/chaos /usr/local/bin;
+	echo -e ${BLUE}"[SUBDOMAINS ENUMERATION]" ${GREEN}"Chaos installation is done !"; echo "";
 	#Assetfinder
 	echo -e ${BLUE}"[SUBDOMAINS ENUMERATION]" ${RED}"Assetfinder installation in progress ...";
 	go get -u github.com/tomnomnom/assetfinder > /dev/null 2>&1 && ln -s ~/go/bin/assetfinder /usr/local/bin/;

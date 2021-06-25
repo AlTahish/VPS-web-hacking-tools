@@ -198,10 +198,14 @@ FUZZING_TOOLS () {
 	echo -e ${BLUE}"[FUZZING TOOLS]" ${RED}"Gobuster installation in progress ...";
 	go install github.com/OJ/gobuster/v3@latest > /dev/null 2>&1 && ln -s ~/go/bin/gobuster /usr/local/bin/;
 	echo -e ${BLUE}"[FUZZING TOOLS]" ${GREEN}"Gobuster installation is done !"; echo "";
-	#DirDar
-	echo -e ${BLUE}"[FUZZING TOOLS]" ${RED}"ffuf installation in progress ...";
-	go get -u github.com/ffuf/ffuf > /dev/null 2>&1 && ln -s ~/go/bin/ffuf /usr/local/bin/;
-	echo -e ${BLUE}"[FUZZING TOOLS]" ${GREEN}"ffuf installation is done !"; echo "";
+	#Feroxbuster
+	echo -e ${BLUE}"[FUZZING TOOLS]" ${RED}"Feroxbuster installation in progress ...";
+	sudo snap install feroxbuster > /dev/null 2>&1;
+	echo -e ${BLUE}"[FUZZING TOOLS]" ${GREEN}"Feroxbuster installation is done !"; echo "";
+	#Gobuster
+	echo -e ${BLUE}"[FUZZING TOOLS]" ${RED}"Gobuster installation in progress ...";
+	go install github.com/OJ/gobuster/v3@latest > /dev/null 2>&1 && ln -s ~/go/bin/gobuster /usr/local/bin/;
+	echo -e ${BLUE}"[FUZZING TOOLS]" ${GREEN}"Gobuster installation is done !"; echo "";
 }
 
 SSRF_TOOLS () {
@@ -301,6 +305,24 @@ JS_HUNTING () {
 	echo -e ${BLUE}"[JS FILES HUNTING]" ${RED}"subjs installation in progress ...";
 	go get -u github.com/lc/subjs > /dev/null 2>&1 && ln -s ~/go/bin/subjs /usr/local/bin/;
 	echo -e ${BLUE}"[JS FILES HUNTING]" ${GREEN}"subjs installation is done !"; echo "";
+	#JSA
+	echo -e ${BLUE}"[JS FILES HUNTING]" ${RED}"JSA installation in progress ...";
+	cd $TOOLS_DIRECTORY && git clone https://github.com/w9w/JSA.git > /dev/null 2>&1 && cd JSA && chmod +x installation.sh && ./installation.sh > /dev/null 2>&1;
+	echo -e ${BLUE}"[JS FILES HUNTING]" ${GREEN}"JSA installation is done !"; echo "";
+	#GetJS
+	echo -e ${BLUE}"[JS FILES HUNTING]" ${RED}"GetJS installation in progress ...";
+	go get github.com/003random/getJS > /dev/null 2>&1 && ln -s ~/go/bin/getJS /usr/local/bin/;
+	echo -e ${BLUE}"[JS FILES HUNTING]" ${GREEN}"GetJS installation is done !"; echo "";
+	#Subscraper
+	echo -e ${BLUE}"[JS FILES HUNTING]" ${RED}"Subscraper installation in progress ...";
+	cd $TOOLS_DIRECTORY && git clone https://github.com/Cillian-Collins/subscraper.git > /dev/null 2>&1 && cd subscraper && pip3 install -r requirements.txt > /dev/null 2>&1;
+	echo -e ${BLUE}"[JS FILES HUNTING]" ${GREEN}"Subscraper installation is done !"; echo "";
+	#JSFScan
+	echo -e ${BLUE}"[JS FILES HUNTING]" ${RED}"JSFScan installation in progress ...";
+	cd $TOOLS_DIRECTORY && git clone https://github.com/KathanP19/JSFScan.sh.git > /dev/null 2>&1 && cd JSFScan && chmod +x install.sh && ./install.sh > /dev/null 2>&1;
+	echo -e ${BLUE}"[JS FILES HUNTING]" ${GREEN}"JSFScan installation is done !"; echo "";
+	
+	
 }
 
 SUBDOMAINS_TAKEOVER () {
@@ -359,6 +381,18 @@ USEFUL_TOOLS () {
 	echo -e ${BLUE}"[USEFUL TOOLS]" ${RED}"4-ZERO-3 installation in progress ...";
 	cd $TOOLS_DIRECTORY && git clone https://github.com/Dheerajmadhukar/4-ZERO-3.git > /dev/null 2>&1 && cd 4-ZERO-3 > /dev/null 2>&1;
 	echo -e ${BLUE}"[USEFUL TOOLS]" ${GREEN}"4-ZERO-3 installation is done !"; echo "";
+	#GF
+	echo -e ${BLUE}"[USEFUL TOOLS]" ${RED}"GF installation in progress ...";
+	go get -u github.com/tomnomnom/gf > /dev/null 2>&1 && ln -s ~/go/bin/gf /usr/local/bin/;
+	echo -e ${BLUE}"[USEFUL TOOLS]" ${GREEN}"GF installation is done !"; echo "";
+	#Ditto
+	echo -e ${BLUE}"[USEFUL TOOLS]" ${RED}"Ditto installation in progress ...";
+	GO111MODULE=on go get github.com/evilsocket/ditto/cmd/ditto > /dev/null 2>&1 && ln -s ~/go/bin/ditto /usr/local/bin/;
+	echo -e ${BLUE}"[USEFUL TOOLS]" ${GREEN}"Ditto installation is done !"; echo "";
+	#Reconftw
+	echo -e ${BLUE}"[USEFUL TOOLS]" ${RED}"Reconftw installation in progress ...";
+	cd $TOOLS_DIRECTORY && git clone https://github.com/six2dez/reconftw > /dev/null 2>&1 && cd reconftw && ./install.sh > /dev/null 2>&1;
+	echo -e ${BLUE}"[USEFUL TOOLS]" ${GREEN}"Reconftw installation is done !"; echo "";
 }
 
 ENVIRONMENT && SUBDOMAINS_ENUMERATION && DNS_RESOLVER && VISUAL_RECON && HTTP_PROBE && WEB_CRAWLING && DORKING && NETWORK_SCANNER && HTTP_PARAMETER && CLOUDFLARE && FUZZING_TOOLS && SSRF_TOOLS && API_TOOLS && WORDLISTS && VULNS_XSS && VULNS_SQLI && CMS_SCANNER && VULNS_SCANNER && JS_HUNTING && SUBDOMAINS_TAKEOVER && USEFUL_TOOLS;

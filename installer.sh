@@ -16,12 +16,13 @@ ENVIRONMENT () {
 	if [ "$OS" == "Debian" ]; then
 		#Specific Debian
 		#chromium
-		apt-get update -y > /dev/null 2>&1 && apt-get install chromium -y > /dev/null 2>&1
+		apt-get update -y > /dev/null 2>&1 && apt-get upgrade > /dev/null 2>&1 && apt-get install chromium -y > /dev/null 2>&1
 	elif [ "$OS" == "Ubuntu" ]; then
 		#Specific Ubuntu
 		#chromium
         	apt-get update -y > /dev/null 2>&1 && apt-get install chromium-browser -y > /dev/null 2>&1 && apt-get install jq nmap phantomjs npm chromium parallel > /dev/null 2>&1 && npm i -g wappalyzer wscat > /dev/null 2>&1
-		
+		#Docker
+		apt-get update -y > /dev/null 2>&1 && 
 		#Bash colors
 		sed -i '/^#.*force_color_prompt/s/^#//' ~/.bashrc && source ~/.bashrc
 	else
@@ -138,6 +139,21 @@ WEB_CRAWLING () {
 	echo -e ${BLUE}"[WEB CRAWLING]" ${RED}"Hakrawler installation in progress ...";
 	go get github.com/hakluke/hakrawler > /dev/null 2>&1 && ln -s ~/go/bin/hakrawler /usr/local/bin/;
 	echo -e ${BLUE}"[WEB CRAWLING]" ${GREEN}"Hakrawler installation is done !"; echo "";
+	#Waybackurls
+	echo -e ${BLUE}"[WEB CRAWLING]" ${RED}"Waybackurls installation in progress ...";
+	go get github.com/tomnomnom/waybackurls > /dev/null 2>&1 && ln -s ~/go/bin/waybackurls /usr/local/bin/;
+	echo -e ${BLUE}"[WEB CRAWLING]" ${GREEN}"Waybackurls installation is done !"; echo "";
+	#Gau
+	echo -e ${BLUE}"[WEB CRAWLING]" ${RED}"Gau installation in progress ...";
+	$ GO111MODULE=on go get -u -v github.com/lc/gau > /dev/null 2>&1 && ln -s ~/go/bin/gau /usr/local/bin/;
+	echo -e ${BLUE}"[WEB CRAWLING]" ${GREEN}"Gau installation is done !"; echo "";
+}
+
+DORKING () {
+	#GitDorker
+	echo -e ${BLUE}"[WEB CRAWLING]" ${RED}"GitDorker installation in progress ...";
+	cd $TOOLS_DIRECTORY && git clone https://github.com/obheda12/GitDorker.git > /dev/null 2>&1 && cd GitDorker && pip3 install -r requirements.txt > /dev/null 2>&1;
+	echo -e ${BLUE}"[WEB CRAWLING]" ${GREEN}"GitDorker installation is done !"; echo "";
 }
 
 NETWORK_SCANNER () {
@@ -160,6 +176,17 @@ HTTP_PARAMETER () {
 	echo -e ${BLUE}"[HTTP PARAMETER DISCOVERY]" ${RED}"Arjun installation in progress ...";
 	pip3 install arjun > /dev/null 2>&1;
 	echo -e ${BLUE}"[HTTP PARAMETER DISCOVERY]" ${GREEN}"Arjun installation is done !"; echo "";
+	#ParamSpider
+	echo -e ${BLUE}"[HTTP PARAMETER DISCOVERY]" ${RED}"ParamSpider installation in progress ...";
+	cd $TOOLS_DIRECTORY && git clone https://github.com/devanshbatham/ParamSpider.git > /dev/null 2>&1 && cd ParamSpider && pip3 install -r requirements.txt > /dev/null 2>&1;
+	echo -e ${BLUE}"[HTTP PARAMETER DISCOVERY]" ${GREEN}"ParamSpider installation is done !"; echo "";
+}
+
+CLOUDFLARE () {
+	#Lilly
+	echo -e ${BLUE}"[CLOUDFLARE IP BYPASS]" ${RED}"Lilly installation in progress ...";
+	cd $TOOLS_DIRECTORY && git clone https://github.com/Dheerajmadhukar/Lilly.git > /dev/null 2>&1;
+	echo -e ${BLUE}"[CLOUDFLARE IP BYPASS]" ${GREEN}"Lilly installation is done !"; echo "";
 }
 
 FUZZING_TOOLS () {

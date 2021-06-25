@@ -198,6 +198,10 @@ FUZZING_TOOLS () {
 	echo -e ${BLUE}"[FUZZING TOOLS]" ${RED}"Gobuster installation in progress ...";
 	go install github.com/OJ/gobuster/v3@latest > /dev/null 2>&1 && ln -s ~/go/bin/gobuster /usr/local/bin/;
 	echo -e ${BLUE}"[FUZZING TOOLS]" ${GREEN}"Gobuster installation is done !"; echo "";
+	#DirDar
+	echo -e ${BLUE}"[FUZZING TOOLS]" ${RED}"ffuf installation in progress ...";
+	go get -u github.com/ffuf/ffuf > /dev/null 2>&1 && ln -s ~/go/bin/ffuf /usr/local/bin/;
+	echo -e ${BLUE}"[FUZZING TOOLS]" ${GREEN}"ffuf installation is done !"; echo "";
 }
 
 SSRF_TOOLS () {
@@ -347,6 +351,14 @@ USEFUL_TOOLS () {
 	echo -e ${BLUE}"[USEFUL TOOLS]" ${RED}"Ripgrep installation in progress ...";
 	apt-get install -y ripgrep > /dev/null 2>&1
 	echo -e ${BLUE}"[USEFUL TOOLS]" ${GREEN}"Ripgrep installation is done !" ${RESTORE}; echo "";
+	#DirDar
+	echo -e ${BLUE}"[USEFUL TOOLS]" ${RED}"DirDar installation in progress ...";
+	go get -u github.com/m4dm0e/dirdar > /dev/null 2>&1 && ln -s ~/go/bin/dirdar /usr/local/bin/;
+	echo -e ${BLUE}"[USEFUL TOOLS]" ${GREEN}"DirDar installation is done !"; echo "";
+	#4-ZERO-3
+	echo -e ${BLUE}"[USEFUL TOOLS]" ${RED}"4-ZERO-3 installation in progress ...";
+	cd $TOOLS_DIRECTORY && git clone https://github.com/Dheerajmadhukar/4-ZERO-3.git > /dev/null 2>&1 && cd 4-ZERO-3 > /dev/null 2>&1;
+	echo -e ${BLUE}"[USEFUL TOOLS]" ${GREEN}"4-ZERO-3 installation is done !"; echo "";
 }
 
-ENVIRONMENT && SUBDOMAINS_ENUMERATION && DNS_RESOLVER && VISUAL_RECON && HTTP_PROBE && WEB_CRAWLING && NETWORK_SCANNER && HTTP_PARAMETER && FUZZING_TOOLS && SSRF_TOOLS && API_TOOLS && WORDLISTS && VULNS_XSS && VULNS_SQLI && CMS_SCANNER && VULNS_SCANNER && JS_HUNTING && USEFUL_TOOLS;
+ENVIRONMENT && SUBDOMAINS_ENUMERATION && DNS_RESOLVER && VISUAL_RECON && HTTP_PROBE && WEB_CRAWLING && DORKING && NETWORK_SCANNER && HTTP_PARAMETER && CLOUDFLARE && FUZZING_TOOLS && SSRF_TOOLS && API_TOOLS && WORDLISTS && VULNS_XSS && VULNS_SQLI && CMS_SCANNER && VULNS_SCANNER && JS_HUNTING && SUBDOMAINS_TAKEOVER && USEFUL_TOOLS;

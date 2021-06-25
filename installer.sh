@@ -20,7 +20,8 @@ ENVIRONMENT () {
 	elif [ "$OS" == "Ubuntu" ]; then
 		#Specific Ubuntu
 		#chromium
-        	apt-get update -y > /dev/null 2>&1 && apt-get install chromium-browser -y > /dev/null 2>&1
+        	apt-get update -y > /dev/null 2>&1 && apt-get install chromium-browser -y > /dev/null 2>&1 && apt-get install jq nmap phantomjs npm chromium parallel > /dev/null 2>&1 && npm i -g wappalyzer wscat > /dev/null 2>&1
+		
 		#Bash colors
 		sed -i '/^#.*force_color_prompt/s/^#//' ~/.bashrc && source ~/.bashrc
 	else
@@ -69,6 +70,18 @@ SUBDOMAINS_ENUMERATION () {
 	echo -e ${BLUE}"[SUBDOMAINS ENUMERATION]" ${RED}"Crobat installation in progress ...";
 	go get github.com/cgboal/sonarsearch/crobat > /dev/null 2>&1 && ln -s ~/go/bin/crobat /usr/local/bin/;
 	echo -e ${BLUE}"[SUBDOMAINS ENUMERATION]" ${GREEN}"Crobat installation is done !"; echo "";
+	#Sudomy
+	echo -e ${BLUE}"[SUBDOMAINS ENUMERATION]" ${RED}"Sudomy installation in progress ...";
+	cd $TOOLS_DIRECTORY && git clone https://github.com/screetsec/Sudomy.git > /dev/null 2>&1 && cd Sudomy && pip3 install -r requirements.txt > /dev/null 2>&1;
+	echo -e ${BLUE}"[SUBDOMAINS ENUMERATION]" ${GREEN}"Sudomy installation is done !"; echo "";
+	#SubzzZ
+	echo -e ${BLUE}"[SUBDOMAINS ENUMERATION]" ${RED}"SubzzZ installation in progress ...";
+	cd $TOOLS_DIRECTORY && git clone https://github.com/Dheerajmadhukar/subzzZ.git > /dev/null 2>&1;
+	echo -e ${BLUE}"[SUBDOMAINS ENUMERATION]" ${GREEN}"SubzzZ installation is done !"; echo "";
+	#Sublist3r
+	echo -e ${BLUE}"[SUBDOMAINS ENUMERATION]" ${RED}"Sublist3r installation in progress ...";
+	cd $TOOLS_DIRECTORY && git clone https://github.com/aboul3la/Sublist3r.git > /dev/null 2>&1 && cd Sublist3r && pip3 install -r requirements.txt > /dev/null 2>&1;
+	echo -e ${BLUE}"[SUBDOMAINS ENUMERATION]" ${GREEN}"Sublist3r installation is done !"; echo "";
 }
 
 DNS_RESOLVER () {
@@ -84,6 +97,10 @@ DNS_RESOLVER () {
 	echo -e ${BLUE}"[DNS RESOLVER]" ${RED}"PureDNS installation in progress ...";
 	GO111MODULE=on go get github.com/d3mondev/puredns/v2 > /dev/null 2>&1 && ln -s ~/go/bin/puredns /usr/local/bin;
 	echo -e ${BLUE}"[DNS RESOLVER]" ${GREEN}"PureDNS installation is done !"; echo "";
+	#Hakrevdns
+	echo -e ${BLUE}"[DNS RESOLVER]" ${RED}"Hakrevdns installation in progress ...";
+	go get github.com/hakluke/hakrevdns > /dev/null 2>&1 && ln -s ~/go/bin/hakrevdns /usr/local/bin;
+	echo -e ${BLUE}"[DNS RESOLVER]" ${GREEN}"Hakrevdns installation is done !"; echo "";
 }
 
 VISUAL_RECON () {

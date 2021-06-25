@@ -123,6 +123,10 @@ HTTP_PROBE () {
 	echo -e ${BLUE}"[HTTP PROBE]" ${RED}"httprobe installation in progress ...";
 	go get -u github.com/tomnomnom/httprobe > /dev/null 2>&1 && ln -s ~/go/bin/httprobe /usr/local/bin/;
 	echo -e ${BLUE}"[HTTP PROBE]" ${GREEN}"httprobe installation is done !"; echo "";
+	#Hakcheckurl
+	echo -e ${BLUE}"[HTTP PROBE]" ${RED}"Hakcheckurl installation in progress ...";
+	go get github.com/hakluke/hakcheckurl > /dev/null 2>&1 && ln -s ~/go/bin/hakcheckurl /usr/local/bin/;
+	echo -e ${BLUE}"[HTTP PROBE]" ${GREEN}"Hakcheckurl installation is done !"; echo "";
 }
 
 WEB_CRAWLING () {
@@ -266,6 +270,17 @@ JS_HUNTING () {
 	echo -e ${BLUE}"[JS FILES HUNTING]" ${RED}"subjs installation in progress ...";
 	go get -u github.com/lc/subjs > /dev/null 2>&1 && ln -s ~/go/bin/subjs /usr/local/bin/;
 	echo -e ${BLUE}"[JS FILES HUNTING]" ${GREEN}"subjs installation is done !"; echo "";
+}
+
+SUBDOMAINS_TAKEOVER () {
+	#BrokenLinkHijacker
+	echo -e ${BLUE}"[SUBDOMAINS TAKEOVER]" ${RED}"BrokenLinkHijacker installation in progress ...";
+	cd $TOOLS_DIRECTORY && git clone https://github.com/MayankPandey01/BrokenLinkHijacker.git > /dev/null 2>&1 && cd BrokenLinkHijacker && pip3 install -r requirements.txt > /dev/null 2>&1;
+	echo -e ${BLUE}"[SUBDOMAINS TAKEOVER]" ${GREEN}"BrokenLinkHijacker installation is done !"; echo "";
+	#NtHiM
+	echo -e ${BLUE}"[SUBDOMAINS TAKEOVER]" ${RED}"NtHiM installation in progress ...";
+	cd /tmp && wget https://github.com/TheBinitGhimire/NtHiM/releases/download/0.1.1/aarch64-NtHiM-linux-gnu.zip > /dev/null 2>&1 && unzip aarch64-NtHiM-linux-gnu.zip > /dev/null 2>&1 && mv NtHiM /usr/local/bin/;
+	echo -e ${BLUE}"[SUBDOMAINS TAKEOVER]" ${GREEN}"NtHiM installation is done !"; echo "";
 }
 
 USEFUL_TOOLS () {

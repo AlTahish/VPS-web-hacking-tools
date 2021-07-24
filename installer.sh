@@ -343,6 +343,28 @@ SUBDOMAINS_TAKEOVER () {
 	echo -e ${BLUE}"[SUBDOMAINS TAKEOVER]" ${GREEN}"NtHiM installation is done !"; echo "";
 }
 
+WORDLISTS () {
+	#SecLists
+	echo -e ${BLUE}"[WORDLISTS]" ${RED}"SecLists installation in progress ...";
+	cd $TOOLS_DIRECTORY && git clone https://github.com/danielmiessler/SecLists.git > /dev/null 2>&1;
+	echo -e ${BLUE}"[WORDLISTS]" ${GREEN}"SecLists installation is done !"; echo "";
+	#RobotsDisallowed
+	echo -e ${BLUE}"[WORDLISTS]" ${RED}"RobotsDisallowed installation in progress ...";
+	cd $TOOLS_DIRECTORY && git clone https://github.com/danielmiessler/RobotsDisallowed.git > /dev/null 2>&1;
+	echo -e ${BLUE}"[WORDLISTS]" ${GREEN}"RobotsDisallowed installation is done !"; echo "";
+	#Assetnote
+	echo -e ${BLUE}"[WORDLISTS]" ${RED}"Assetnote installation in progress ...";
+	cd $TOOLS_DIRECTORY && wget -r --no-parent -R "index.html*" https://wordlists-cdn.assetnote.io/data/ -nH > /dev/null 2>&1;
+	echo -e ${BLUE}"[WORDLISTS]" ${GREEN}"Assetnote installation is done !"; echo "";
+	}
+	
+PAYLOADS () {
+	#PayloadsAllTheThings
+	echo -e ${BLUE}"[PAYLOADS]" ${RED}"PayloadsAllTheThings installation in progress ...";
+	cd $TOOLS_DIRECTORY && git clone https://github.com/swisskyrepo/PayloadsAllTheThings.git > /dev/null 2>&1;
+	echo -e ${BLUE}"[PAYLOADS]" ${GREEN}"PayloadsAllTheThings installation is done !"; echo "";
+	}
+	
 USEFUL_TOOLS () {
 	#getallurls
 	echo -e ${BLUE}"[USEFUL TOOLS]" ${RED}"getallurls installation in progress ...";
@@ -402,4 +424,4 @@ USEFUL_TOOLS () {
 	echo -e ${BLUE}"[USEFUL TOOLS]" ${GREEN}"Reconftw installation is done !"; echo "";
 }
 
-ENVIRONMENT && SUBDOMAINS_ENUMERATION && DNS_RESOLVER && VISUAL_RECON && HTTP_PROBE && WEB_CRAWLING && DORKING && NETWORK_SCANNER && HTTP_PARAMETER && CLOUDFLARE && FUZZING_TOOLS && SSRF_TOOLS && API_TOOLS && WORDLISTS && VULNS_XSS && VULNS_SQLI && CMS_SCANNER && VULNS_SCANNER && JS_HUNTING && SUBDOMAINS_TAKEOVER && USEFUL_TOOLS;
+ENVIRONMENT && SUBDOMAINS_ENUMERATION && CLOUD_TOOLS && DNS_RESOLVER && VISUAL_RECON && HTTP_PROBE && WEB_CRAWLING && DORKING && NETWORK_SCANNER && HTTP_PARAMETER && CLOUDFLARE && FUZZING_TOOLS && SSRF_TOOLS && API_TOOLS && WORDLISTS && VULNS_XSS && VULNS_SQLI && CMS_SCANNER && VULNS_SCANNER && JS_HUNTING && SUBDOMAINS_TAKEOVER && WORDLISTS && PAYLOADS && USEFUL_TOOLS;

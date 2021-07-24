@@ -85,6 +85,13 @@ SUBDOMAINS_ENUMERATION () {
 	echo -e ${BLUE}"[SUBDOMAINS ENUMERATION]" ${GREEN}"Sublist3r installation is done !"; echo "";
 }
 
+CLOUD_TOOLS () {
+	#Fleex
+	echo -e ${BLUE}"[CLOUD_TOOLS]" ${RED}"Fleex installation in progress ...";
+	GO111MODULE=on go get -v github.com/sw33tLie/fleex > /dev/null 2>&1 && ln -s ~/go/bin/fleex /usr/local/bin/;
+	echo -e ${BLUE}"[CLOUD_TOOLS]" ${GREEN}"Fleex installation is done !"; echo "";
+	}
+
 DNS_RESOLVER () {
 	#MassDNS
 	echo -e ${BLUE}"[DNS RESOLVER]" ${RED}"MassDNS installation in progress ...";

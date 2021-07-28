@@ -20,9 +20,9 @@ ENVIRONMENT () {
 	elif [ "$OS" == "Ubuntu" ]; then
 		#Specific Ubuntu
 		#chromium
-        	apt-get update -y > /dev/null 2>&1 && apt-get install chromium-browser -y > /dev/null 2>&1 && apt-get install jq nmap phantomjs npm chromium parallel > /dev/null 2>&1 && npm i -g wappalyzer wscat > /dev/null 2>&1
+        	apt-get update -y > /dev/null 2>&1 && apt-get install chromium-browser -y > /dev/null 2>&1 && apt-get install jq nmap phantomjs npm chromium parallel python3-venv libxml2 libxml2-dev libz-dev libxslt1-dev python3-dev -y > /dev/null 2>&1 && npm i -g wappalyzer wscat > /dev/null 2>&1
 		#Docker
-		apt-get update -y > /dev/null 2>&1 && 
+		apt-get update -y > /dev/null 2>&1 && apt-get install libcurl4-openssl-dev libpcre3-dev libssh-dev -y > /dev/null 2>&1 && pip3 install dnsgen > /dev/null 2>&1
 		#Bash colors
 		sed -i '/^#.*force_color_prompt/s/^#//' ~/.bashrc && source ~/.bashrc
 	else
@@ -356,6 +356,10 @@ WORDLISTS () {
 	echo -e ${BLUE}"[WORDLISTS]" ${RED}"Assetnote installation in progress ...";
 	cd $TOOLS_DIRECTORY && wget -r --no-parent -R "index.html*" https://wordlists-cdn.assetnote.io/data/ -nH > /dev/null 2>&1;
 	echo -e ${BLUE}"[WORDLISTS]" ${GREEN}"Assetnote installation is done !"; echo "";
+	#nullenc0de
+	echo -e ${BLUE}"[WORDLISTS]" ${RED}"nullenc0de installation in progress ...";
+	cd $TOOLS_DIRECTORY && wget https://gist.githubusercontent.com/nullenc0de/96fb9e934fc16415fbda2f83f08b28e7/raw/146f367110973250785ced348455dc5173842ee4/content_discovery_nullenc0de.txt > /dev/null 2>&1;
+	echo -e ${BLUE}"[WORDLISTS]" ${GREEN}"nullenc0de installation is done !"; echo "";
 	}
 	
 PAYLOADS () {

@@ -426,6 +426,10 @@ USEFUL_TOOLS () {
 	echo -e ${BLUE}"[USEFUL TOOLS]" ${RED}"Reconftw installation in progress ...";
 	cd $TOOLS_DIRECTORY && git clone https://github.com/six2dez/reconftw > /dev/null 2>&1 && cd reconftw && ./install.sh > /dev/null 2>&1;
 	echo -e ${BLUE}"[USEFUL TOOLS]" ${GREEN}"Reconftw installation is done !"; echo "";
+	#Commix
+	echo -e ${BLUE}"[USEFUL TOOLS]" ${RED}"Commix installation in progress ...";
+	cd $TOOLS_DIRECTORY && git clone https://github.com/commixproject/commix.git > /dev/null 2>&1;
+	echo -e ${BLUE}"[USEFUL TOOLS]" ${GREEN}"Commix installation is done !"; echo "";
 }
 
 ENVIRONMENT && SUBDOMAINS_ENUMERATION && CLOUD_TOOLS && DNS_RESOLVER && VISUAL_RECON && HTTP_PROBE && WEB_CRAWLING && DORKING && NETWORK_SCANNER && HTTP_PARAMETER && CLOUDFLARE && FUZZING_TOOLS && SSRF_TOOLS && API_TOOLS && WORDLISTS && VULNS_XSS && VULNS_SQLI && CMS_SCANNER && VULNS_SCANNER && JS_HUNTING && SUBDOMAINS_TAKEOVER && WORDLISTS && PAYLOADS && USEFUL_TOOLS;
